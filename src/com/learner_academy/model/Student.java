@@ -30,8 +30,6 @@ public class Student {
 //		this.clas = clas;
 //	}
 
-
-
 	public int getStudentId() {
 		
 		return studentId;
@@ -61,16 +59,10 @@ public class Student {
 		
 	}
 
-
-
 	@Override
 	public String toString() {
 		return "Student [studentId=" + studentId + ", studentName=" + studentName + "]";
 	}
 
-
-	
-
-	
 
 }

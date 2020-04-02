@@ -55,12 +55,10 @@ public class Classes {
 //		this.teac = teac;
 //	}
 
-
 	// getters and setters
 	public int getClassId() {
 		return classId;
 	}
-
 
 	public void setClassId(int classId) {
 		this.classId = classId;
@@ -88,8 +86,5 @@ public class Classes {
 		super();
 		this.className = className;
 	}
-
-
-	
 
 }
