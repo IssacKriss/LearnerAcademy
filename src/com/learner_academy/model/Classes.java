@@ -1,39 +1,34 @@
 package com.learner_academy.model;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 //import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
-@Table(name = "ClassesTable")
+@Table
 public class Classes {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int classId;
 	private String className;
 
 	// mapping
 
-	@OneToMany(mappedBy = "clas", fetch = FetchType.LAZY)
-	private List<Student> stu;
-
-//	@JsonManagedReference
-	public List<Student> getStu() {
-		return stu;
-	}
-
-	public void setStu(List<Student> stu) {
-		this.stu = stu;
-	}
+//	@OneToMany(cascade = CascadeType.ALL,mappedBy = "clas", fetch = FetchType.LAZY)
+//	private List<Student> stu;
+//
+////	@JsonManagedReference
+//	public List<Student> getStu() {
+//		return stu;
+//	}
+//
+//	public void setStu(List<Student> stu) {
+//		this.stu = stu;
+//	}
 
 	
 //	@ManyToMany(cascade = CascadeType.ALL, mappedBy = "classes",fetch = FetchType.LAZY)
@@ -61,21 +56,11 @@ public class Classes {
 //	}
 
 
-	public Classes(String className, List<Student> stu) {
-		super();
-		this.className = className;
-		this.stu = stu;
-	}
-
 	// getters and setters
 	public int getClassId() {
 		return classId;
 	}
 
-	public Classes(String className) {
-		super();
-		this.className = className;
-	}
 
 	public void setClassId(int classId) {
 		this.classId = classId;
@@ -95,7 +80,13 @@ public class Classes {
 
 	@Override
 	public String toString() {
-		return "Classes [classId=" + classId + ", className=" + className + ", stu=" + stu + "]";
+		return "Classes [classId=" + classId + ", className=" + className + "]";
+	}
+
+
+	public Classes(String className) {
+		super();
+		this.className = className;
 	}
 
 

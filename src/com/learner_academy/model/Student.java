@@ -4,12 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-//import com.fasterxml.jackson.annotation.JsonBackReference;
 import javax.persistence.Table;
 
 @Entity
+@Table
 public class Student {
 
 	@Id
@@ -19,30 +17,30 @@ public class Student {
 	
 	//mapping
 	
-	@ManyToOne
-    @JoinColumn(name = "class_Id")
-	private Classes clas;
-
-//	@JsonBackReference
-	public Classes getClas() {
-		return clas;
-	}
-
-	public void setClas(Classes clas) {
-		this.clas = clas;
-	}
-
-	public Student(String studentName, Classes clas) {
-		super();
-		this.studentName = studentName;
-		this.clas = clas;
-	}
+//	@ManyToOne
+//    @JoinColumn(name = "class_Id")
+//	private Classes clas;
+//
+////	@JsonBackReference
+//	public Classes getClas() {
+//		return clas;
+//	}
+//
+//	public void setClas(Classes clas) {
+//		this.clas = clas;
+//	}
 
 
 
 	public int getStudentId() {
 		
 		return studentId;
+	}
+
+
+	public Student(String studentName) {
+		super();
+		this.studentName = studentName;
 	}
 
 
@@ -64,15 +62,10 @@ public class Student {
 	}
 
 
-	public Student(String studentName) {
-		super();
-		this.studentName = studentName;
-	}
-
 
 	@Override
 	public String toString() {
-		return "Student [studentId=" + studentId + ", studentName=" + studentName + ", clas=" + clas + "]";
+		return "Student [studentId=" + studentId + ", studentName=" + studentName + "]";
 	}
 
 
