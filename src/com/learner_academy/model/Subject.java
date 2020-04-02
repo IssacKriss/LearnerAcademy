@@ -1,7 +1,6 @@
 //package com.learner_academy.model;
 //
 //import java.util.List;
-//
 //import javax.persistence.Entity;
 //import javax.persistence.GeneratedValue;
 //import javax.persistence.GenerationType;
@@ -69,7 +68,4 @@
 //		this.clas = clas;
 //		this.teac = teac;
 //	}
-//	
-//	
-//
 //}
