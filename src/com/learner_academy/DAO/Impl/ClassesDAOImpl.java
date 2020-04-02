@@ -1,5 +1,7 @@
 package com.learner_academy.DAO.Impl;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -35,18 +37,18 @@ public class ClassesDAOImpl implements ClassesDAO{
 ////	session.close();
 ////	return classes;
 ////}
-//
-//
-//public List<Classes> getAllClasses() {
-//	Session session =factory.openSession();
-//	Transaction transaction = session.beginTransaction();
-//	List<Classes> classesList=session.createQuery("from com.learner_academy.model.Classes").list();
-//	transaction.commit();
-//	session.close();
-//	return classesList;
-//}
-//
-//
+
+
+public List<Classes> getAllClasses() {
+	Session session =factory.openSession();
+	Transaction transaction = session.beginTransaction();
+	List<Classes> classesList=session.createQuery("from com.learner_academy.model.Classes").list();
+	transaction.commit();
+	session.close();
+	return classesList;
+}
+
+
 public Classes updateClasses(Classes classes) {
 	Session session =factory.openSession();
 	Transaction transaction = session.beginTransaction();

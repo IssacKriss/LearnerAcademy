@@ -1,5 +1,7 @@
 package com.learner_academy.service.Impl;
 
+import java.util.List;
+
 import com.learner_academy.DAO.StudentDAO;
 import com.learner_academy.DAO.Impl.StudentDAOImpl;
 import com.learner_academy.model.Student;
@@ -19,11 +21,11 @@ public class StudentServiceImpl implements StudentService {
 //
 //		return dao.getStudentById(studentId);
 //	}
-//
-//	public List<Student> getAllStudents() {
-//
-//		return dao.getAllStudents();
-//	}
+
+	public List<Student> getAllStudents() {
+
+		return dao.getAllStudents();
+	}
 
 	public Student updateStudent(Student student) {
 

@@ -1,5 +1,7 @@
 package com.learner_academy.DAO.Impl;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -33,16 +35,16 @@ public class StudentDAOImpl implements StudentDAO {
 //		session.close();
 //		return student;
 //	}
-//
-//
-//	public List<Student> getAllStudents() {
-//		Session session =factory.openSession();
-//		Transaction transaction = session.beginTransaction();
-//		List<Student> studentList=session.createQuery("from com.learner_academy.model.Student").list();
-//		transaction.commit();
-//		session.close();
-//		return studentList;
-//	}
+
+
+	public List<Student> getAllStudents() {
+		Session session =factory.openSession();
+		Transaction transaction = session.beginTransaction();
+		List<Student> studentList=session.createQuery("from com.learner_academy.model.Student").list();
+		transaction.commit();
+		session.close();
+		return studentList;
+	}
 
 	
 	public Student updateStudent(Student student) {

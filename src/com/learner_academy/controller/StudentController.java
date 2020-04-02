@@ -1,6 +1,9 @@
 package com.learner_academy.controller;
 
+import java.util.List;
+
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.PATCH;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -33,13 +36,13 @@ public class StudentController {
 //		return service.getStudentById(studentId);
 //	}
 
-//	@GET
-//	@Path("/Student/getAll")
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public List<Student> getAllStudents() {
-//
-//		return service.getAllStudents();
-//	}
+	@GET
+	@Path("/Student/getAll")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Student> getAllStudents() {
+
+		return service.getAllStudents();
+	}
 
 	@PATCH
 	@Path("/Student/update")

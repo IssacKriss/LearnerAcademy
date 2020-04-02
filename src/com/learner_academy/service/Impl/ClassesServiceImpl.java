@@ -1,5 +1,7 @@
 package com.learner_academy.service.Impl;
 
+import java.util.List;
+
 import com.learner_academy.DAO.ClassesDAO;
 import com.learner_academy.DAO.Impl.ClassesDAOImpl;
 import com.learner_academy.model.Classes;
@@ -20,11 +22,11 @@ public class ClassesServiceImpl implements ClassesService {
 ////
 ////		return dao.getClassesById(classId);
 ////	}
-//
-//	public List<Classes> getAllClasses() {
-//
-//		return dao.getAllClasses();
-//	}
+
+	public List<Classes> getAllClasses() {
+
+		return dao.getAllClasses();
+	}
 
 	public Classes updateClasses(Classes classes) {
 

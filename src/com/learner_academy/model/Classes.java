@@ -1,5 +1,6 @@
 package com.learner_academy.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +14,7 @@ public class Classes {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(updatable = false, nullable = false)
 	private int classId;
 	private String className;
 
