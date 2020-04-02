@@ -27,14 +27,15 @@ public class StudentDAOImpl implements StudentDAO {
 		return student;	
 	}
 	
-//	public Student getStudentById(int studentId) {
-//		Session session =factory.openSession();
-//		Transaction transaction = session.beginTransaction();
-//		Student student=(Student)session.get(Student.class, studentId);
-//		transaction.commit();
-//		session.close();
-//		return student;
-//	}
+	public Student getStudentById(int studentId) {
+		Session session =factory.openSession();
+		Transaction transaction = session.beginTransaction();
+		Student student=(Student)session.get(Student.class, studentId);
+//		Student student=(Student)session.createQuery("select studentId from com.learner_academy.model.Student s where s.studentId=:studentIdParam").setParameter("studentIdParam", studentId);
+		transaction.commit();
+		session.close();
+		return student;
+	}
 
 
 	public List<Student> getAllStudents() {

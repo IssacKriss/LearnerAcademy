@@ -26,15 +26,15 @@ public class StudentController {
 
 		return service.createStudent(student);
 	}
-//
-//	@GET
-//	@Path("/Student/getById")
-//	@Consumes(MediaType.APPLICATION_JSON)
-//	@Produces(MediaType.APPLICATION_JSON)
-//	public Student getStudentById(int studentId) {
-//
-//		return service.getStudentById(studentId);
-//	}
+
+	@GET
+	@Path("/Student/getById")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Student getStudentById(int studentId) {
+
+		return service.getStudentById(studentId);
+	}
 
 	@GET
 	@Path("/Student/getAll")

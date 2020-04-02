@@ -9,7 +9,7 @@ public interface StudentService {
 
 	//CRUD methods for Student
 		public Student createStudent(Student student);
-//		public Student getStudentById(int studentId);
+		public Student getStudentById(int studentId);
 		public List<Student> getAllStudents();
 		public Student updateStudent(Student student);
 //		public void removeStudent(int studentId);

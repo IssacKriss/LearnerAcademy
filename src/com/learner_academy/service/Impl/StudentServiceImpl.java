@@ -17,10 +17,10 @@ public class StudentServiceImpl implements StudentService {
 		return dao.createStudent(student);
 	}
 	
-//	public Student getStudentById(int studentId) {
-//
-//		return dao.getStudentById(studentId);
-//	}
+	public Student getStudentById(int studentId) {
+
+		return dao.getStudentById(studentId);
+	}
 
 	public List<Student> getAllStudents() {
 
