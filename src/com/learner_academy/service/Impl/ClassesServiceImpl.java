@@ -17,11 +17,11 @@ public class ClassesServiceImpl implements ClassesService {
 		return dao.createClasses(classes);
 
 	}
-//
-////	public Classes getClassesById(int classId) {
-////
-////		return dao.getClassesById(classId);
-////	}
+
+	public Classes getClassesById(int classId) {
+
+		return dao.getClassesById(classId);
+	}
 
 	public List<Classes> getAllClasses() {
 
@@ -33,9 +33,9 @@ public class ClassesServiceImpl implements ClassesService {
 		return dao.updateClasses(classes);
 	}
 
-////	public void removeClasses(int classId) {
-////
-////		dao.removeClasses(classId);
-////
-////	}
+	public void removeClasses(int classId) {
+
+		dao.removeClasses(classId);
+
+	}
 }

@@ -32,9 +32,9 @@ public class StudentServiceImpl implements StudentService {
 		return dao.updateStudent(student);
 	}
 
-//	public void removeStudent(int studentId) {
-//
-//		dao.removeStudent(studentId);
-//
-//	}
+	public void removeStudent(int studentId) {
+
+		dao.removeStudent(studentId);
+
+	}
 }

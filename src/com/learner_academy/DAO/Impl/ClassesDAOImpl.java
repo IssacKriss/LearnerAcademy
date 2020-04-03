@@ -28,15 +28,15 @@ public class ClassesDAOImpl implements ClassesDAO{
 }
 
 
-//
-////public Classes getClassesById(int classId) {
-////	Session session =factory.openSession();
-////	Transaction transaction = session.beginTransaction();
-////	Classes classes=(Classes)session.get(Classes.class, classId);
-////	transaction.commit();
-////	session.close();
-////	return classes;
-////}
+
+public Classes getClassesById(int classId) {
+	Session session =factory.openSession();
+	Transaction transaction = session.beginTransaction();
+	Classes classes=(Classes)session.get(Classes.class, classId);
+	transaction.commit();
+	session.close();
+	return classes;
+}
 
 
 public List<Classes> getAllClasses() {
@@ -59,14 +59,14 @@ public Classes updateClasses(Classes classes) {
 }
 
 
-////public void removeClasses(int classId) {
-////	Session session =factory.openSession();
-////	Transaction transaction = session.beginTransaction();
-////	Classes cla= new Classes();
-////	cla.setClassId(classId);
-////	session.delete(cla);
-////	transaction.commit();
-////	session.close();
-////}
+public void removeClasses(int classId) {
+	Session session =factory.openSession();
+	Transaction transaction = session.beginTransaction();
+	Classes cla= new Classes();
+	cla.setClassId(classId);
+	session.delete(cla);
+	transaction.commit();
+	session.close();
+}
 	
 }
