@@ -23,7 +23,7 @@ public class Student {
 //    @JoinColumn(name = "class_Id")
 //	private Classes clas;
 //
-////	@JsonBackReference
+//	@JsonBackReference
 //	public Classes getClas() {
 //		return clas;
 //	}
