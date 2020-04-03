@@ -12,18 +12,17 @@ import javax.persistence.Table;
 public class Student {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(updatable = false, nullable = false)
 	private int studentId;
 	private String studentName;
 	
 	//mapping
 	
-//	@ManyToOne
-//    @JoinColumn(name = "class_Id")
+//	@OneToOne
 //	private Classes clas;
 //
-//	@JsonBackReference
+////	@JsonBackReference
 //	public Classes getClas() {
 //		return clas;
 //	}
@@ -31,18 +30,11 @@ public class Student {
 //	public void setClas(Classes clas) {
 //		this.clas = clas;
 //	}
-
-	public int getStudentId() {
-		
-		return studentId;
-	}
-
-
-	public Student(String studentName) {
-		super();
-		this.studentName = studentName;
-	}
-
+//
+//	public int getStudentId() {
+//		
+//		return studentId;
+//	}
 
 	public void setStudentId(int studentId) {
 		this.studentId = studentId;
@@ -61,10 +53,17 @@ public class Student {
 		
 	}
 
+
+	public Student(String studentName) {
+		super();
+		this.studentName = studentName;
+	}
+
 	@Override
 	public String toString() {
 		return "Student [studentId=" + studentId + ", studentName=" + studentName + "]";
 	}
 
+	
 
 }

@@ -6,31 +6,33 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-//import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table
 public class Classes {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(updatable = false, nullable = false)
 	private int classId;
 	private String className;
 
 	// mapping
 
-//	@OneToMany(cascade = CascadeType.ALL,mappedBy = "clas", fetch = FetchType.LAZY)
-//	private List<Student> stu;
+//	@OneToMany(fetch = FetchType.LAZY)
+//	private Student stu;
 //
-////	@JsonManagedReference
-//	public List<Student> getStu() {
+//	public Student getStu() {
 //		return stu;
 //	}
 //
-//	public void setStu(List<Student> stu) {
+//	public void setStu(Student stu) {
 //		this.stu = stu;
 //	}
+//	
+	
+
+//	@JsonManagedReference
 
 	
 //	@ManyToMany(cascade = CascadeType.ALL, mappedBy = "classes",fetch = FetchType.LAZY)
@@ -57,12 +59,15 @@ public class Classes {
 //		this.teac = teac;
 //	}
 
+	
+
+
 	// getters and setters
 	public int getClassId() {
 		return classId;
 	}
 
-	public void setClassId(int classId) {
+		public void setClassId(int classId) {
 		this.classId = classId;
 	}
 

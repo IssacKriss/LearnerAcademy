@@ -20,6 +20,7 @@ import com.learner_academy.service.Impl.StudentServiceImpl;
 public class StudentController {
 
 	private StudentService service = new StudentServiceImpl();
+	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
