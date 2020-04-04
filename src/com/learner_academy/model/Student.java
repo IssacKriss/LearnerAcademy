@@ -5,20 +5,30 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-@Table
 public class Student {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(updatable = false, nullable = false)
+	@Column(name = "studentId", updatable = false, nullable = false)
 	private int studentId;
 	private String studentName;
 	
 	//mapping
-	
+
+//	private Classes clas;
+//	
+//	public Classes getClas() {
+//		return clas;
+//	}
+//
+//
+//	public void setClas(Classes clas) {
+//		this.clas = clas;
+//	}
+
+
 	public Student() {
 		
 	}

@@ -1,40 +1,72 @@
 package com.learner_academy.model;
 
 import java.util.List;
-
+import java.util.ArrayList;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 @Entity
-@Table
 public class Classes {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(updatable = false, nullable = false)
+	@Column(name = "classId" , updatable = false, nullable = false)
 	private int classId;
 	private String className;
-
 	// mapping
 
-	@OneToMany(fetch = FetchType.LAZY)
-	private List<Student> stu;
-
-	public List<Student> getStu() {
-		return stu;
-	}
-
-	public void setStu(List<Student> stu) {
-		this.stu = stu;
-	}
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinTable(name = "classes_student" , joinColumns ={ @JoinColumn(name = "classId") } , inverseJoinColumns = { @JoinColumn(name = "studentId") })
+	private List<Student> student = new ArrayList<>();
 
 	
+	public List<Student> getStudent() {
+		return student;
+	}
+
+	public void setStudent(List<Student> student) {
+		this.student = student;
+	}
+
+
+	public int getClassId() {
+		return classId;
+	}
+
+	public void setClassId(int classId) {
+		this.classId = classId;
+	}
+
+	public String getClassName() {
+		return className;
+	}
+
+	public void setClassName(String className) {
+		this.className = className;
+	}
+
+	@Override
+	public String toString() {
+		return "Classes [classId=" + classId + ", className=" + className + ", student=" + student + "]";
+	}
+
+	public Classes(String className, List<Student> student) {
+		super();
+		this.className = className;
+		this.student = student;
+	}
+
+	public Classes() {
+	
+	}
 	
 	
 
@@ -65,39 +97,6 @@ public class Classes {
 //		this.teac = teac;
 //	}
 
-	
-
-
 	// getters and setters
-	public int getClassId() {
-		return classId;
-	}
-
-		public void setClassId(int classId) {
-		this.classId = classId;
-	}
-
-	public String getClassName() {
-		return className;
-	}
-
-	public void setClassName(String className) {
-		this.className = className;
-	}
-
-	public Classes() {
-
-	}
-
-	@Override
-	public String toString() {
-		return "Classes [classId=" + classId + ", className=" + className + "]";
-	}
-
-
-	public Classes(String className) {
-		super();
-		this.className = className;
-	}
 
 }
