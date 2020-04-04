@@ -19,24 +19,6 @@ public class Student {
 	
 	//mapping
 	
-//	@OneToOne
-//	private Classes clas;
-//
-////	@JsonBackReference
-//	public Classes getClas() {
-//		return clas;
-//	}
-//
-//	public void setClas(Classes clas) {
-//		this.clas = clas;
-//	}
-//
-//	public int getStudentId() {
-//		
-//		return studentId;
-//	}
-
-	
 	public Student() {
 		
 	}

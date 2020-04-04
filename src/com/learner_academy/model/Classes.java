@@ -1,10 +1,14 @@
 package com.learner_academy.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,17 +23,19 @@ public class Classes {
 
 	// mapping
 
-//	@OneToMany(fetch = FetchType.LAZY)
-//	private Student stu;
-//
-//	public Student getStu() {
-//		return stu;
-//	}
-//
-//	public void setStu(Student stu) {
-//		this.stu = stu;
-//	}
-//	
+	@OneToMany(fetch = FetchType.LAZY)
+	private List<Student> stu;
+
+	public List<Student> getStu() {
+		return stu;
+	}
+
+	public void setStu(List<Student> stu) {
+		this.stu = stu;
+	}
+
+	
+	
 	
 
 //	@JsonManagedReference

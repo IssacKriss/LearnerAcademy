@@ -14,6 +14,7 @@
 //
 //import com.learner_academy.model.Classes;
 //import com.learner_academy.service.ClassesService;
+//import com.learner_academy.service.SubjectService;
 //import com.learner_academy.service.Impl.ClassesServiceImpl;
 //
 //@Path("/Subject")
@@ -24,41 +25,41 @@
 //	@POST
 //	@Consumes(MediaType.APPLICATION_JSON)
 //	@Produces(MediaType.APPLICATION_JSON)
-//	public Classes createSubject(Subject subject) {
+//	public Subject createSubject(Subject subject) {
 //		return service.createSubject(subject);
 //
 //	}
 //
 //	@GET
-//	@Path("/{classId}")
+//	@Path("/{subjectId}")
 //	@Consumes(MediaType.APPLICATION_JSON)
 //	@Produces(MediaType.APPLICATION_JSON)
-//	public Classes getClassesById(@PathParam("classId") int classId) {
+//	public Subject getSubjectById(@PathParam("subjectId") int subjectId) {
 //
-//		return service.getClassesById(classId);
+//		return service.getSubjectById(subjectId);
 //	}
 //
 //	@GET
 //	@Produces(MediaType.APPLICATION_JSON)
-//	public List<Classes> getAllClasses() {
+//	public List<Subject> getAllSubject() {
 //
-//		return service.getAllClasses();
+//		return service.getAllSubject();
 //	}
 //
 //	@PATCH
 //	@Produces(MediaType.APPLICATION_JSON)
 //	@Consumes(MediaType.APPLICATION_JSON)
-//	public Classes updateClasses(Classes classes) {
+//	public Subject updateSubject(Subject subject) {
 //
-//		return service.updateClasses(classes);
+//		return service.updateSubject(subject);
 //	}
 //
 //	@DELETE
-//	@Path("/{classId}")
+//	@Path("/{subjectId}")
 //	@Consumes(MediaType.APPLICATION_JSON)
-//	public void removeClasses(@PathParam("classId")int classId) {
+//	public void removeSubject(@PathParam("subjectId")int subjectId) {
 //
-//		service.removeClasses(classId);
+//		service.removeSubject(subjectId);
 //
 //	}
 //	
