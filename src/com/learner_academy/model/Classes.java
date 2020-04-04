@@ -16,7 +16,6 @@ public class Classes {
 	@Column(updatable = false, nullable = false)
 	private int classId;
 	private String className;
-
 	// mapping
 
 //	@OneToMany(fetch = FetchType.LAZY)
