@@ -15,6 +15,6 @@
 		<mapping class="com.learner_academy.model.Student"></mapping>
 		<mapping class="com.learner_academy.model.Classes"></mapping>
 		<mapping class="com.learner_academy.model.Subject"></mapping>
-		
+		<mapping class="com.learner_academy.model.Teacher"></mapping>
 	</session-factory>
 </hibernate-configuration> 
