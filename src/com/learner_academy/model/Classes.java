@@ -1,34 +1,44 @@
 package com.learner_academy.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name = "classes")
 public class Classes {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(updatable = false, nullable = false)
+	@Column(name = "classId" , updatable = false, nullable = false)
 	private int classId;
 	private String className;
 	// mapping
 
-//	@OneToMany(fetch = FetchType.LAZY)
-//	private Student stu;
-//
-//	public Student getStu() {
-//		return stu;
-//	}
-//
-//	public void setStu(Student stu) {
-//		this.stu = stu;
-//	}
-//	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinTable(name = "classes_student" , joinColumns = { @JoinColumn(name = "classId") } , inverseJoinColumns = { @JoinColumn(name = "studentId") })
+	private List<Student> student = new ArrayList<>();
+
+	
+	public List<Student> getStudent() {
+		return student;
+	}
+
+	public void setStudent(List<Student> student) {
+		this.student = student;
+	}
+	
 	
 
 //	@JsonManagedReference
@@ -61,7 +71,9 @@ public class Classes {
 	
 
 
+
 	// getters and setters
+	
 	public int getClassId() {
 		return classId;
 	}

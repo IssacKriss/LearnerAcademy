@@ -13,13 +13,13 @@ public class Student {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(updatable = false, nullable = false)
+	@Column(name = "studentId" , updatable = false, nullable = false)
 	private int studentId;
 	private String studentName;
 	
 	//mapping
-	
-//	@OneToOne
+//	
+//	@ManyToOne
 //	private Classes clas;
 //
 ////	@JsonBackReference
@@ -30,13 +30,7 @@ public class Student {
 //	public void setClas(Classes clas) {
 //		this.clas = clas;
 //	}
-//
-//	public int getStudentId() {
-//		
-//		return studentId;
-//	}
 
-	
 	public Student() {
 		
 	}
