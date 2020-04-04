@@ -14,5 +14,7 @@
 		<property name="hbm2ddl.auto">update</property>
 		<mapping class="com.learner_academy.model.Student"></mapping>
 		<mapping class="com.learner_academy.model.Classes"></mapping>
+		<mapping class="com.learner_academy.model.Subject"></mapping>
+		
 	</session-factory>
 </hibernate-configuration> 
