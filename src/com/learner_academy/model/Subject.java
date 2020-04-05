@@ -1,19 +1,33 @@
 package com.learner_academy.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-@Table
 public class Subject {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "subjectId", updatable = false, nullable = false)
 	private int subjectId;
 	private String subjectName;
+	
+	
+//	@ManyToMany
+//	@JoinColumn(name = "teacherId")
+//	private List<Teacher> teac;
+//
+//	public List<Teacher> getTeac() {
+//		return teac;
+//	}
+//	public void setTeac(List<Teacher> teac) {
+//		this.teac = teac;
+//	}
+	
+	
 	
 //	@ManyToMany
 //	@JoinColumn(name = "classId")
@@ -25,16 +39,7 @@ public class Subject {
 //	public void setClas(List<Classes> clas) {
 //		this.clas = clas;
 //	}
-//	@ManyToMany
-//	@JoinColumn(name = "teacherId")
-//	private List<Teacher> teac;
-//
-//	public List<Teacher> getTeac() {
-//		return teac;
-//	}
-//	public void setTeac(List<Teacher> teac) {
-//		this.teac = teac;
-//	}
+
 	public int getSubjectId() {
 		return subjectId;
 	}

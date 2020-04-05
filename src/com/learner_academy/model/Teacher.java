@@ -1,20 +1,40 @@
 package com.learner_academy.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 
 @Entity
-@Table
 public class Teacher {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "teacherId" , updatable = false, nullable = false)
 	private int teacherId;
 	private String teacherName;
 	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(name = "teacher_subject" , joinColumns ={ @JoinColumn(name = "teacherId") } , inverseJoinColumns = { @JoinColumn(name = "subjectId") })
+	private List<Subject> subject = new ArrayList<>();
+
+	public List<Subject> getSubject() {
+		return subject;
+	}
+	public void setSubject(List<Subject> subject) {
+		this.subject = subject;
+	}
+	
+		
 //	@ManyToMany
 //	@JoinColumn(name = "classId")
 //	private List<Classes> clas;
@@ -26,16 +46,8 @@ public class Teacher {
 //	public void setClas(List<Classes> clas) {
 //		this.clas = clas;
 //	}
-//	@ManyToMany
-//	@JoinColumn(name = "subjectId")
-//	private List<Subject> subj;
-//	@JsonManagedReference	
-//	public List<Subject> getSubj() {
-//		return subj;
-//	}
-//	public void setSubj(List<Subject> subj) {
-//		this.subj = subj;
-//	}
+
+	
 	public int getTeacherId() {
 		return teacherId;
 	}
