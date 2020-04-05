@@ -35,7 +35,6 @@ public class Classes {
 		this.student = student;
 	}
 
-	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "subject_classes" , joinColumns ={ @JoinColumn(name = "classId") } , inverseJoinColumns = { @JoinColumn(name = "subjectId") })
 	private List<Subject> subject = new ArrayList<>();
