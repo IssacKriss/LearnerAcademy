@@ -26,7 +26,6 @@ public class Classes {
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "student_classes" , joinColumns ={ @JoinColumn(name = "classId") } , inverseJoinColumns = { @JoinColumn(name = "studentId") })
 	private List<Student> student = new ArrayList<>();
-
 	
 	public List<Student> getStudent() {
 		return student;
@@ -36,6 +35,18 @@ public class Classes {
 		this.student = student;
 	}
 
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(name = "subject_classes" , joinColumns ={ @JoinColumn(name = "classId") } , inverseJoinColumns = { @JoinColumn(name = "subjectId") })
+	private List<Subject> subject = new ArrayList<>();
+	
+	public List<Subject> getSubject() {
+		return subject;
+	}
+
+	public void setSubject(List<Subject> subject) {
+		this.subject = subject;
+	}
 
 	public int getClassId() {
 		return classId;
@@ -53,37 +64,26 @@ public class Classes {
 		this.className = className;
 	}
 
-	@Override
-	public String toString() {
-		return "Classes [classId=" + classId + ", className=" + className + ", student=" + student + "]";
-	}
 
-	public Classes(String className, List<Student> student) {
+
+	public Classes(String className, List<Student> student, List<Subject> subject) {
 		super();
 		this.className = className;
 		this.student = student;
+		this.subject = subject;
+	}
+
+	@Override
+	public String toString() {
+		return "Classes [classId=" + classId + ", className=" + className + ", student=" + student + ", subject="
+				+ subject + "]";
 	}
 
 	public Classes() {
 	
 	}
 	
-	
 
-//	@JsonManagedReference
-
-	
-//	@ManyToMany(cascade = CascadeType.ALL, mappedBy = "classes",fetch = FetchType.LAZY)
-//	private List<Subject> subj;
-//	
-//	@JsonManagedReference
-//	public List<Subject> getSubj() {
-//		return subj;
-//	}
-//
-//	public void setSubj(List<Subject> subj) {
-//		this.subj = subj;
-//	}
 //	
 //	@OneToMany(cascade = CascadeType.ALL, mappedBy = "classes",fetch = FetchType.LAZY)
 //	private List<Teacher> teac;
