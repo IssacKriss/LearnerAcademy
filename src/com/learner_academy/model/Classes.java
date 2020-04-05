@@ -23,7 +23,7 @@ public class Classes {
 	private String className;
 	// mapping
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "classes_student" , joinColumns ={ @JoinColumn(name = "classId") } , inverseJoinColumns = { @JoinColumn(name = "studentId") })
 	private List<Student> student = new ArrayList<>();
 
