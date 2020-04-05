@@ -48,6 +48,18 @@ public class Classes {
 		this.subject = subject;
 	}
 
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(name = "teacher_classes" , joinColumns ={ @JoinColumn(name = "classId") } , inverseJoinColumns = { @JoinColumn(name = "teacherId") })
+	private List<Teacher> teacher = new ArrayList<>();
+		
+	public List<Teacher> getTeacher() {
+		return teacher;
+	}
+
+	public void setTeacher(List<Teacher> teacher) {
+		this.teacher = teacher;
+	}
+
 	public int getClassId() {
 		return classId;
 	}
@@ -64,39 +76,23 @@ public class Classes {
 		this.className = className;
 	}
 
-
-
-	public Classes(String className, List<Student> student, List<Subject> subject) {
+	public Classes(String className, List<Student> student, List<Subject> subject, List<Teacher> teacher) {
 		super();
 		this.className = className;
 		this.student = student;
 		this.subject = subject;
+		this.teacher = teacher;
 	}
 
 	@Override
 	public String toString() {
 		return "Classes [classId=" + classId + ", className=" + className + ", student=" + student + ", subject="
-				+ subject + "]";
+				+ subject + ", teacher=" + teacher + "]";
 	}
 
 	public Classes() {
 	
 	}
-	
 
-//	
-//	@OneToMany(cascade = CascadeType.ALL, mappedBy = "classes",fetch = FetchType.LAZY)
-//	private List<Teacher> teac;
-//	
-//	@JsonManagedReference
-//	public List<Teacher> getTeac() {
-//		return teac;
-//	}
-//
-//	public void setTeac(List<Teacher> teac) {
-//		this.teac = teac;
-//	}
-
-	// getters and setters
 
 }

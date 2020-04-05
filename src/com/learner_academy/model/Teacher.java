@@ -10,9 +10,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
 
 @Entity
 public class Teacher {
@@ -64,14 +64,14 @@ public class Teacher {
 	public Teacher() {
 		
 	}
-	@Override
-	public String toString() {
-		return "Teacher [teacherId=" + teacherId + ", teacherName=" + teacherName + "]";
-	}
 	public Teacher(String teacherName) {
 		super();
 		this.teacherName = teacherName;
 	}
-	
+	@Override
+	public String toString() {
+		return "Teacher [teacherId=" + teacherId + ", teacherName=" + teacherName + "]";
+	}
+
 	
 }
