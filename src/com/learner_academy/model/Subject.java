@@ -27,19 +27,19 @@ public class Subject {
 //		this.teac = teac;
 //	}
 	
-	
-	
-//	@ManyToMany
-//	@JoinColumn(name = "classId")
-//	private List<Classes> clas;
+//	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//	@JoinTable(name = "subject_classes" , joinColumns ={ @JoinColumn(name = "subjectId") } , inverseJoinColumns = { @JoinColumn(name = "classId") })
+//	private List<Classes> classes = new ArrayList<>();
 //
-//	public List<Classes> getClas() {
-//		return clas;
+//
+//	public List<Classes> getClasses() {
+//		return classes;
 //	}
-//	public void setClas(List<Classes> clas) {
-//		this.clas = clas;
+//	public void setClasses(List<Classes> classes) {
+//		this.classes = classes;
 //	}
-
+	
+	
 	public int getSubjectId() {
 		return subjectId;
 	}
@@ -53,6 +53,11 @@ public class Subject {
 		this.subjectName = subjectName;
 	}
 
+
+	public Subject(String subjectName) {
+		super();
+		this.subjectName = subjectName;
+	}
 	@Override
 	public String toString() {
 		return "Subject [subjectId=" + subjectId + ", subjectName=" + subjectName + "]";
@@ -60,10 +65,7 @@ public class Subject {
 	public Subject() {
 	
 	}
-	public Subject(String subjectName) {
-		super();
-		this.subjectName = subjectName;
-	}
+	
 	
 	
 }

@@ -17,17 +17,6 @@ public class Student {
 	
 	//mapping
 
-//	private Classes clas;
-//	
-//	public Classes getClas() {
-//		return clas;
-//	}
-//
-//
-//	public void setClas(Classes clas) {
-//		this.clas = clas;
-//	}
-
 
 	public Student() {
 		
