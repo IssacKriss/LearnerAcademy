@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -35,7 +36,7 @@ public class Classes {
 		this.student = student;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER )
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER )
 	@JoinTable(name = "subject_classes" , joinColumns ={ @JoinColumn(name = "classId") } , inverseJoinColumns = { @JoinColumn(name = "subjectId") })
 	private List<Subject> subject = new ArrayList<>();
 	
