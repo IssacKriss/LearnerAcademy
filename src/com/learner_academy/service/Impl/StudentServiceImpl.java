@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.learner_academy.DAO.StudentDAO;
 import com.learner_academy.DAO.Impl.StudentDAOImpl;
+import com.learner_academy.exception.BusinessException;
 import com.learner_academy.model.Student;
 import com.learner_academy.service.StudentService;
 
@@ -18,9 +19,16 @@ public class StudentServiceImpl implements StudentService {
 	}
 
 	@Override
-	public Student getStudentById(int studentId) {
+	public Student getStudentById(int studentId) throws BusinessException {
 
-		return dao.getStudentById(studentId);
+		if (studentId <= 0) {
+			throw new BusinessException("Please supply the right studentId. The studentId cannot be Zero or Negative");
+		}
+		Student student = dao.getStudentById(studentId);
+		if(student==null) {
+			throw new BusinessException("The student with studentId '"+studentId+"' does not exist. Please supply the right studentId");
+		}
+		return student;
 	}
 
 	@Override
