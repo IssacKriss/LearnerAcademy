@@ -11,17 +11,18 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
+import com.learner_academy.exception.BusinessException;
 import com.learner_academy.model.Teacher;
 import com.learner_academy.service.TeacherService;
 import com.learner_academy.service.Impl.TeacherServiceImpl;
 
-
 @Path("/Teacher")
 public class TeacherController {
-	
+
 	private TeacherService service = new TeacherServiceImpl();
-	
+
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
@@ -34,9 +35,12 @@ public class TeacherController {
 	@Path("/{teacherId}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Teacher getTeacherById(@PathParam("teacherId")int teacherId) {
-
-		return service.getTeacherById(teacherId);
+	public Response getTeacherById(@PathParam("teacherId") int teacherId) {
+		try {
+			return Response.ok(service.getTeacherById(teacherId), MediaType.APPLICATION_JSON).build();
+		} catch (BusinessException e) {
+			return Response.status(Response.Status.NOT_FOUND).entity(e.getMessage()).build();
+		}
 	}
 
 	@GET
@@ -57,7 +61,7 @@ public class TeacherController {
 	@DELETE
 	@Path("/{teacherId}")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void removeTeacher(@PathParam("teacherId")int teacherId) {
+	public void removeTeacher(@PathParam("teacherId") int teacherId) {
 
 		service.removeTeacher(teacherId);
 

@@ -11,7 +11,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
+import com.learner_academy.exception.BusinessException;
 import com.learner_academy.model.Subject;
 import com.learner_academy.service.SubjectService;
 import com.learner_academy.service.Impl.SubjectServiceImpl;
@@ -33,9 +35,13 @@ private SubjectService service = new SubjectServiceImpl();
 	@Path("/{subjectId}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Subject getSubjectById(@PathParam("subjectId") int subjectId) {
+	public Response getSubjectById(@PathParam("subjectId")int subjectId) {
 
-		return service.getSubjectById(subjectId);
+		try {
+			return Response.ok(service.getSubjectById(subjectId),MediaType.APPLICATION_JSON).build();
+		} catch (BusinessException e) {
+			return Response.status(Response.Status.NOT_FOUND).entity(e.getMessage()).build();
+		}
 	}
 
 	@GET

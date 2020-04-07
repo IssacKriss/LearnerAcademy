@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.learner_academy.DAO.SubjectDAO;
 import com.learner_academy.DAO.Impl.SubjectDAOImpl;
+import com.learner_academy.exception.BusinessException;
+import com.learner_academy.model.Classes;
 import com.learner_academy.model.Subject;
 import com.learner_academy.service.SubjectService;
 
@@ -18,9 +20,16 @@ public class SubjectServiceImpl implements SubjectService {
 	}
 
 	@Override
-	public Subject getSubjectById(int subjectId) {
-
-		return dao.getSubjectById(subjectId);
+	public Subject getSubjectById(int subjectId) throws BusinessException {
+		if (subjectId <= 0) {
+			throw new BusinessException("The subejctId cannot be Zero or Negative. Please supply the right subjectId.");
+		}
+		Subject subject = dao.getSubjectById(subjectId);
+		if (subject == null) {
+			throw new BusinessException(
+					"The subject with subjectId '" + subjectId + "' does not exist. Please supply the right subjectId");
+		}
+		return subject;
 	}
 
 	@Override

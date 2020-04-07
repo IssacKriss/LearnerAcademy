@@ -22,23 +22,23 @@ import com.learner_academy.service.Impl.ClassesServiceImpl;
 public class ClassesController {
 
 	private ClassesService service = new ClassesServiceImpl();
-	
+
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Classes createClasses(Classes classes) {
+		
 		return service.createClasses(classes);
-
 	}
 
 	@GET
 	@Path("/{classId}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response getClassesById(@PathParam("classId")int classId) {
+	public Response getClassesById(@PathParam("classId") int classId) {
 
 		try {
-			return Response.ok(service.getClassesById(classId),MediaType.APPLICATION_JSON).build();
+			return Response.ok(service.getClassesById(classId), MediaType.APPLICATION_JSON).build();
 		} catch (BusinessException e) {
 			return Response.status(Response.Status.NOT_FOUND).entity(e.getMessage()).build();
 		}
@@ -62,7 +62,7 @@ public class ClassesController {
 	@DELETE
 	@Path("/{classId}")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void removeClasses(@PathParam("classId")int classId) {
+	public void removeClasses(@PathParam("classId") int classId) {
 
 		service.removeClasses(classId);
 
