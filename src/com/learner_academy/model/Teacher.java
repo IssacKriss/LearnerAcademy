@@ -11,7 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.JoinColumn;
 
 @Entity
@@ -23,7 +23,7 @@ public class Teacher {
 	private int teacherId;
 	private String teacherName;
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "teacher_subject" , joinColumns ={ @JoinColumn(name = "teacherId") } , inverseJoinColumns = { @JoinColumn(name = "subjectId") })
 	private List<Subject> subject = new ArrayList<>();
 

@@ -24,7 +24,7 @@ public class Classes {
 	// mapping
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable(name = "classes_student" , joinColumns ={ @JoinColumn(name = "classId") } , inverseJoinColumns = { @JoinColumn(name = "studentId") })
+	@JoinTable(name = "student_classes" , joinColumns ={ @JoinColumn(name = "classId") } , inverseJoinColumns = { @JoinColumn(name = "studentId") })
 	private List<Student> student = new ArrayList<>();
 	
 	public List<Student> getStudent() {
@@ -48,7 +48,7 @@ public class Classes {
 	}
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable(name = "classes_teacher" , joinColumns ={ @JoinColumn(name = "classId") } , inverseJoinColumns = { @JoinColumn(name = "teacherId") })
+	@JoinTable(name = "teacher_classes" , joinColumns ={ @JoinColumn(name = "classId") } , inverseJoinColumns = { @JoinColumn(name = "teacherId") })
 	private List<Teacher> teacher = new ArrayList<>();
 		
 	public List<Teacher> getTeacher() {
