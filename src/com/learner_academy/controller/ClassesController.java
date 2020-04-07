@@ -11,7 +11,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
+import com.learner_academy.exception.BusinessException;
 import com.learner_academy.model.Classes;
 import com.learner_academy.service.ClassesService;
 import com.learner_academy.service.Impl.ClassesServiceImpl;
@@ -33,9 +35,13 @@ public class ClassesController {
 	@Path("/{classId}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Classes getClassesById(@PathParam("classId") int classId) {
+	public Response getClassesById(@PathParam("classId")int classId) {
 
-		return service.getClassesById(classId);
+		try {
+			return Response.ok(service.getClassesById(classId),MediaType.APPLICATION_JSON).build();
+		} catch (BusinessException e) {
+			return Response.status(Response.Status.NOT_FOUND).entity(e.getMessage()).build();
+		}
 	}
 
 	@GET

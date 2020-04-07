@@ -22,13 +22,15 @@ public class StudentServiceImpl implements StudentService {
 	public Student getStudentById(int studentId) throws BusinessException {
 
 		if (studentId <= 0) {
-			throw new BusinessException("Please supply the right studentId. The studentId cannot be Zero or Negative");
+			throw new BusinessException("The studentId cannot be Zero or Negative. Please supply the right studentId.");
 		}
 		Student student = dao.getStudentById(studentId);
-		if(student==null) {
-			throw new BusinessException("The student with studentId '"+studentId+"' does not exist. Please supply the right studentId");
+		if (student == null) {
+			throw new BusinessException(
+					"The student with studentId '" + studentId + "' does not exist. Please supply the right studentId");
 		}
 		return student;
+
 	}
 
 	@Override
