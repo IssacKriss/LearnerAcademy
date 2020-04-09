@@ -21,6 +21,7 @@ public class Teacher {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "teacherId" , updatable = false, nullable = false)
 	private int teacherId;
+	@Column(nullable = false)
 	private String teacherName;
 	
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

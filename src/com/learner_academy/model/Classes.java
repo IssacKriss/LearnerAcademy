@@ -21,9 +21,10 @@ public class Classes {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "classId" , updatable = false, nullable = false)
 	private int classId;
+	@Column(nullable = false)
 	private String className;
-	// mapping
-
+	
+	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "student_classes" , joinColumns ={ @JoinColumn(name = "classId") } , inverseJoinColumns = { @JoinColumn(name = "studentId") })
 	private List<Student> student = new ArrayList<>();

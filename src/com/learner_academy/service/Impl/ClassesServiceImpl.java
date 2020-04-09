@@ -6,7 +6,6 @@ import com.learner_academy.DAO.ClassesDAO;
 import com.learner_academy.DAO.Impl.ClassesDAOImpl;
 import com.learner_academy.exception.BusinessException;
 import com.learner_academy.model.Classes;
-import com.learner_academy.model.Student;
 import com.learner_academy.service.ClassesService;
 
 public class ClassesServiceImpl implements ClassesService {
@@ -44,6 +43,7 @@ public class ClassesServiceImpl implements ClassesService {
 	public Classes updateClasses(Classes classes) {
 
 		return dao.updateClasses(classes);
+
 	}
 
 	@Override

@@ -27,7 +27,7 @@ public class ClassesController {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Classes createClasses(Classes classes) {
-		
+
 		return service.createClasses(classes);
 	}
 

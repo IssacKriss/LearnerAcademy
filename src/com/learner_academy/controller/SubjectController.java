@@ -21,8 +21,8 @@ import com.learner_academy.service.Impl.SubjectServiceImpl;
 @Path("/Subject")
 public class SubjectController {
 
-private SubjectService service = new SubjectServiceImpl();
-	
+	private SubjectService service = new SubjectServiceImpl();
+
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
@@ -35,10 +35,10 @@ private SubjectService service = new SubjectServiceImpl();
 	@Path("/{subjectId}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response getSubjectById(@PathParam("subjectId")int subjectId) {
+	public Response getSubjectById(@PathParam("subjectId") int subjectId) {
 
 		try {
-			return Response.ok(service.getSubjectById(subjectId),MediaType.APPLICATION_JSON).build();
+			return Response.ok(service.getSubjectById(subjectId), MediaType.APPLICATION_JSON).build();
 		} catch (BusinessException e) {
 			return Response.status(Response.Status.NOT_FOUND).entity(e.getMessage()).build();
 		}
@@ -62,10 +62,10 @@ private SubjectService service = new SubjectServiceImpl();
 	@DELETE
 	@Path("/{subjectId}")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void removeSubject(@PathParam("subjectId")int subjectId) {
+	public void removeSubject(@PathParam("subjectId") int subjectId) {
 
 		service.removeSubject(subjectId);
 
 	}
-	
+
 }

@@ -13,6 +13,7 @@ public class Subject {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "subjectId", updatable = false, nullable = false)
 	private int subjectId;
+	@Column(nullable = false)
 	private String subjectName;
 	
 	

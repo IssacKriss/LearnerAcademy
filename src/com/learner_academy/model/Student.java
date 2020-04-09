@@ -13,20 +13,12 @@ public class Student {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "studentId", updatable = false, nullable = false)
 	private int studentId;
+	@Column(nullable = false)
 	private String studentName;
 	
-	//mapping
-
-
-	public Student() {
-		
-	}
-
-
 	public int getStudentId() {
 		return studentId;
 	}
-
 
 	public void setStudentId(int studentId) {
 		this.studentId = studentId;
@@ -42,6 +34,9 @@ public class Student {
 		this.studentName = studentName;
 	}
 
+	public Student() {
+		
+	}
 
 	public Student(String studentName) {
 		super();

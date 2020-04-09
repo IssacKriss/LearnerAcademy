@@ -5,7 +5,6 @@ import java.util.List;
 import com.learner_academy.DAO.TeacherDAO;
 import com.learner_academy.DAO.Impl.TeacherDAOImpl;
 import com.learner_academy.exception.BusinessException;
-import com.learner_academy.model.Classes;
 import com.learner_academy.model.Teacher;
 import com.learner_academy.service.TeacherService;
 

@@ -21,7 +21,7 @@ import com.learner_academy.service.Impl.StudentServiceImpl;
 public class StudentController {
 
 	private StudentService service = new StudentServiceImpl();
-	
+
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
@@ -34,10 +34,10 @@ public class StudentController {
 	@Path("/{studentId}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response getStudentById(@PathParam("studentId")int studentId) {
+	public Response getStudentById(@PathParam("studentId") int studentId) {
 
 		try {
-			return Response.ok(service.getStudentById(studentId),MediaType.APPLICATION_JSON).build();
+			return Response.ok(service.getStudentById(studentId), MediaType.APPLICATION_JSON).build();
 		} catch (BusinessException e) {
 			return Response.status(Response.Status.NOT_FOUND).entity(e.getMessage()).build();
 		}
@@ -61,11 +61,10 @@ public class StudentController {
 	@DELETE
 	@Path("/{studentId}")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void removeStudent(@PathParam("studentId")int studentId) {
+	public void removeStudent(@PathParam("studentId") int studentId) {
 
 		service.removeStudent(studentId);
 
 	}
 
-	
 }
