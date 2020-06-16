@@ -1,5 +1,4 @@
 package com.learner_academy.model;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,7 +22,6 @@ public class Student {
 	public void setStudentId(int studentId) {
 		this.studentId = studentId;
 	}
-
 
 	public String getStudentName() {
 		return studentName;

@@ -50,6 +50,14 @@ public class StudentController {
 		return service.getAllStudents();
 	}
 
+//	
+//	@GET
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public Response getAllStudents() {
+//
+//	return Response.ok(service.getAllStudents(), MediaType.APPLICATION_JSON).header("Access-Control-Allow-Origin", "*").build();
+//	}
+
 	@PATCH
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
