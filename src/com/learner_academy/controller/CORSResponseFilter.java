@@ -16,8 +16,9 @@ public class CORSResponseFilter implements ContainerResponseFilter {
         ContainerResponseContext responseContext
     ) throws IOException {
         MultivaluedMap<String, Object> headers = responseContext.getHeaders();
-        headers.add("Access-Control-Allow-Origin", "*"); //Allow Access from everywhere   
-        headers.add("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");            
+        headers.add("Access-Control-Allow-Origin", "http://localhost:4200"); //Allow Access from everywhere   
+        headers.add("Access-Control-Allow-Methods", "GET,POST,DELETE,PATCH");            
         headers.add("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
+
     }
 }

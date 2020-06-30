@@ -19,36 +19,23 @@ public class Teacher {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "teacherId" , updatable = false, nullable = false)
+	@Column(name = "teacherId" , updatable = false, nullable = true)
 	private int teacherId;
-	@Column(nullable = false)
+	@Column(nullable = true)
 	private String teacherName;
 	
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "teacher_subject" , joinColumns ={ @JoinColumn(name = "teacherId") } , inverseJoinColumns = { @JoinColumn(name = "subjectId") })
-	private List<Subject> subject = new ArrayList<>();
+	private List<Subject> subjects = new ArrayList<>();
 
 	public List<Subject> getSubject() {
-		return subject;
+		return subjects;
 	}
-	public void setSubject(List<Subject> subject) {
-		this.subject = subject;
+	public void setSubject(List<Subject> subjects) {
+		this.subjects = subjects;
 	}
 	
-		
-//	@ManyToMany
-//	@JoinColumn(name = "classId")
-//	private List<Classes> clas;
-//	
-//	@JsonManagedReference	
-//	public List<Classes> getClas() {
-//		return clas;
-//	}
-//	public void setClas(List<Classes> clas) {
-//		this.clas = clas;
-//	}
 
-	
 	public int getTeacherId() {
 		return teacherId;
 	}
@@ -62,16 +49,17 @@ public class Teacher {
 		this.teacherName = teacherName;
 	}
 
+	public Teacher(String teacherName, List<Subject> subjects) {
+		super();
+		this.teacherName = teacherName;
+		this.subjects = subjects;
+	}
 	public Teacher() {
 		
 	}
-	public Teacher(String teacherName) {
-		super();
-		this.teacherName = teacherName;
-	}
-	@Override
+@Override
 	public String toString() {
-		return "Teacher [teacherId=" + teacherId + ", teacherName=" + teacherName + "]";
+		return "Teacher [teacherId=" + teacherId + ", teacherName=" + teacherName + ", subjects=" + subjects + "]";
 	}
 
 	

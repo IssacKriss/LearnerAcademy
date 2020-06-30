@@ -10,9 +10,9 @@ public class Student {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "studentId", updatable = false, nullable = false)
+	@Column(name = "studentId", updatable = false, nullable = true)
 	private int studentId;
-	@Column(nullable = false)
+	@Column(nullable = true)
 	private String studentName;
 	
 	public int getStudentId() {

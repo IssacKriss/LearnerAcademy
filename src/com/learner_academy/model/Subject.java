@@ -11,9 +11,9 @@ public class Subject {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "subjectId", updatable = false, nullable = false)
+	@Column(name = "subjectId", updatable = false, nullable = true)
 	private int subjectId;
-	@Column(nullable = false)
+	@Column(nullable = true)
 	private String subjectName;
 	
 	

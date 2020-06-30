@@ -58,14 +58,36 @@ public class StudentController {
 //	return Response.ok(service.getAllStudents(), MediaType.APPLICATION_JSON).header("Access-Control-Allow-Origin", "*").build();
 //	}
 
-	@PATCH
-	@Produces(MediaType.APPLICATION_JSON)
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Student updateStudent(Student student) {
+//	@PATCH
+//	@Produces(MediaType.APPLICATION_JSON)
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	public Student updateStudent(Student student) {
+////		
+//		return service.updateStudent(student);
+//	}
+	
+//	@PATCH
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public Student updateStudent(Student student) {
+//		return service.updateStudent(student);
+//	}
 
+	@PATCH
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Student updateStudent(Student student) {
 		return service.updateStudent(student);
 	}
-
+	
+//	@PUT
+////	@Produces(MediaType.APPLICATION_JSON)
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	public Response updateStudent(Student student) {
+//		// Presentation Layer to update the student
+//		return Response.ok(service.updateStudent(student), MediaType.APPLICATION_JSON).build();
+//	} 
+	
 	@DELETE
 	@Path("/{studentId}")
 	@Consumes(MediaType.APPLICATION_JSON)
