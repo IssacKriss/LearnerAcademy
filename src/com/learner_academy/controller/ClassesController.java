@@ -50,7 +50,6 @@ public class ClassesController {
 
 		return service.getAllClasses();
 	}
-
 	@PATCH
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
